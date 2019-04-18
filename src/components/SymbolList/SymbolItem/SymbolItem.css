@@ -1,0 +1,53 @@
+.symbolList {
+    height: 110px;
+    width: 100px;
+    padding: 10px;
+    display: inline-block
+}
+
+.symbolList img {
+    
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 8px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        
+}
+
+.selectedSymbols {
+    height: 120px;
+    width: 100px;
+    padding: 10px;
+    display: inline-block
+}
+
+.selectedSymbols img {
+    
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        
+}
+
+.word {
+    
+    padding: 5px;
+    display: inline
+}
+
+.word img {
+    
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        height: 70px;
+        width: 60px;
+        
+        box-sizing: border-box;
+        
+}

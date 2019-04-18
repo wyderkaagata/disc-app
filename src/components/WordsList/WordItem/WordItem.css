@@ -1,0 +1,14 @@
+
+.wordItem {
+    display: inline-block;
+    background-color: #eee;
+    padding: 5px ;
+    margin:  10px  ;
+    width: 47%;
+    border-radius: 10px;
+}
+
+
+.selected {
+    background-color: #e1ff89;
+} 
