@@ -57,29 +57,17 @@ const symbolSynthesis = props => {
     return (
         <div className="container">
             <div className="header">
-            
-                    
-    
                 <div className="column2">
-
-                <h1>SPEECH SYNTHESIS</h1>
-                <h2>Phaistos Disc</h2>
-                <Synthesator disabled={speech.length===0} sound={speech}/>
+                    <h1>SPEECH SYNTHESIS</h1>
+                    <h2>Phaistos Disc</h2>
+                    <Synthesator disabled={speech.length===0} sound={speech}/>
                 </div>
                 <div className="column1">
-                <img src={disc} alt="disc"></img>
-                </div>
-                
-                 
-                
-            
-            
+                    <img src={disc} alt="disc"></img>
+                </div> 
             </div>
             <button classname="toggleButton" onClick={toggleMode}>{wordMode ? "Word Creator" : "Phaistos Disc"}</button>
-            
-            {mode}
-            
-            
+            {mode}  
         </div>
         );
 };

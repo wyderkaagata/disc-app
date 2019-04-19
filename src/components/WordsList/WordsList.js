@@ -18,6 +18,7 @@ const wordsList = props => {
 
     if(sideMode)
     {
+        console.log("create");
         sideA = wordsA.map(w => <WordItem
             key={w.id}
             id={w.id}
@@ -26,6 +27,7 @@ const wordsList = props => {
             clicked={props.clicked} />); 
     }
     else {
+        console.log("create");
         sideB = wordsB.map(w => <WordItem
             key={w.id}
             id={w.id} 
@@ -36,6 +38,7 @@ const wordsList = props => {
 
 
    useEffect(() => {
+       
        if (props.selected)
        {
         if(sideMode)
@@ -64,7 +67,7 @@ const wordsList = props => {
         {sideA}
     </div></React.Fragment>
      : <React.Fragment><h2>Phaistos Disc - Side B</h2><div>
-    {sideB}
+        {sideB}
     </div></React.Fragment>
 
 
@@ -73,9 +76,8 @@ const wordsList = props => {
         <React.Fragment>
           <button onClick={toggleHandler}>{sideMode ? "Side B" : "Side A"}</button>
         <div className="center">
-        {mode}
+            {mode}
         </div>
-        
         </React.Fragment>
 
     );
