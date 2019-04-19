@@ -1,21 +1,24 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useReducer} from 'react'
 import SymbolList from '../../components/SymbolList/SymbolList';
 import Synthesator from '../../components/Synthesator/Synthesator';
 import SelectedSymbols from '../../components/SelectedSymbols/SelectedSymbols'
 import WordsList from '../../components/WordsList/WordsList';
 import './SpeechSynthesis.css';
 import disc from './../../disc.jpeg';
+import reducer from './../../reducer';
 
 
 const symbolSynthesis = props => {
     
-    const [symbols, setSymbols] = useState([]);
-    const [speech, setSpeech] = useState("");
-    const [selectedId, setSelectedId] = useState(null);
+    //const [symbols, setSymbols] = useState([]);
+    //const [speech, setSpeech] = useState("");
+    //const [selectedId, setSelectedId] = useState(null);
     const [wordMode, setWordMode] = useState(true);
-    const uuid = require("uuid");
+    
+    const initialState = {symbols: [], speech: "", selectedId: null};
+    const [state, dispatch] = useReducer(reducer, initialState);
 
-    const addHandler = (symbol) => {
+    /*const addHandler = (symbol) => {
         const uuidValue = uuid.v4();
         const updatedSymbol = {...symbol, uuid: uuidValue};
         const updatedSymbols = [...symbols, updatedSymbol]
@@ -39,19 +42,19 @@ const symbolSynthesis = props => {
     const speechHandler = (speechRequest, id) => {
         setSpeech(speechRequest);
         setSelectedId(id);
-    }
+    }*/
 
     const toggleMode = () => {
         setWordMode(!wordMode);
-        setSpeech("");
-        setSelectedId(null);
+        dispatch({type: 'toggleMode'});
     }
 
-    let mode = wordMode ? <WordsList selected={selectedId} clicked={speechHandler}/> : (<React.Fragment>
-            {symbols.length>0 ?<h2>Selected signs</h2> : null}
-            <SelectedSymbols symbols={symbols} clicked={removeHandler}/>
+    let mode = wordMode ? <WordsList selected={state.selectedId} clicked={(speech, id) => dispatch({type: 'selectWord', payload: {speechRequest: speech, id: id}})}/>
+        : (<React.Fragment>
+            {state.symbols.length>0 ?<h2>Selected signs</h2> : null}
+            <SelectedSymbols symbols={state.symbols} clicked={(selectedSymbol) => dispatch({type: 'removeSymbol', symbol: selectedSymbol})}/>
             <h2>Phaistos Disc signs</h2>
-            <SymbolList clicked={addHandler}/>
+            <SymbolList clicked={(selectedSymbol) => dispatch({type: 'addSymbol', symbol: selectedSymbol})}/>
         </React.Fragment> );
 
     return (
@@ -60,7 +63,7 @@ const symbolSynthesis = props => {
                 <div className="column2">
                     <h1>SPEECH SYNTHESIS</h1>
                     <h2>Phaistos Disc</h2>
-                    <Synthesator disabled={speech.length===0} sound={speech}/>
+                    <Synthesator disabled={state.speech.length===0} sound={state.speech}/>
                 </div>
                 <div className="column1">
                     <img src={disc} alt="disc"></img>
