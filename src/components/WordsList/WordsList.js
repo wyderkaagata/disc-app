@@ -6,7 +6,7 @@ import './WordsList.css';
 
 
 const wordsList = props => {
-    const [sideMode, setSideMode]= useState(true); // set side to sideA
+    const [sideMode, setSideMode] = useState(true); // set side to sideA
     let sideA;
     let sideB;
    
@@ -18,7 +18,6 @@ const wordsList = props => {
 
     if(sideMode)
     {
-        console.log("create");
         sideA = wordsA.map(w => <WordItem
             key={w.id}
             id={w.id}

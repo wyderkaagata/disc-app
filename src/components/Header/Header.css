@@ -1,0 +1,40 @@
+.header { 
+    color: #b3f000;
+    display: block;
+    
+    background-color: white;
+    padding: 10px;
+    margin:10px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.column2 h1 {
+    font-size: 60px;
+    font-weight: 100;
+}
+
+.column2 {
+    width: 70%;
+    float: left;
+  display: block;
+  text-align: center;
+}
+
+.column1 {
+    
+    width: 30%;
+    float: left;
+    display: block;
+  }
+
+  img {
+    height: 270px;
+}
+
+@media screen and (max-width: 600px) {
+  .column2 h1 {
+    font-size: 30px;
+    margin-top: 70px;
+}
+}

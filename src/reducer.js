@@ -1,4 +1,5 @@
-import React from 'react';
+
+import axios from './axios-config';
 
 const reducer = (state, action) => {
     const uuid = require("uuid");
@@ -18,6 +19,14 @@ const reducer = (state, action) => {
         return {...state, symbols: updatedSymbols2, speech:updatedSpeech2};
       case 'selectWord':
         return {...state, speech: action.payload.speechRequest, selectedId: action.payload.id};
+      case 'saveWord':
+        const word = {
+            word: state.symbols,
+            speech: state.speech
+        };
+        axios.post('/words.json', word)
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
       case 'toggleMode':
         return {...state, symbols: [], speech: "", selectedId: null};
       default:

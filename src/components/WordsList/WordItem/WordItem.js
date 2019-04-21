@@ -10,8 +10,8 @@ const wordItem = props => {
     }
 
     const word = props.word.map(id => symbols.find(s => s.id === id));
-    const wordItem = word.map(symbol =>
-        <SymbolItem symbol={symbol} key={'{props.word.id}{symbol.id}'} styleName="word" clicked={clickHandler}/>);
+    const wordItem = word.map((symbol, id) =>
+        <SymbolItem symbol={symbol} key={id} styleName="word" clicked={clickHandler}/>);
     const sounds = word.map(symbol => symbol.sound);
     const speech = sounds.join('');
     let classes = props.selected ? "wordItem selected" : "wordItem";

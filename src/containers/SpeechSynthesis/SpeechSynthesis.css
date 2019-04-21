@@ -1,37 +1,11 @@
 .container { 
     margin: auto;
-   
+    display: block;
     width: 80%;
     padding-bottom: 30px;
 }
 
-.header { 
-    color: #b3f000;
-    
-    background-color: white;
-    padding: 10px;
-    margin:10px;
-    border-radius: 10px;
-}
 
-.column2 h1 {
-    font-size: 60px;
-    font-weight: 100;
-}
-
-.column2 {
-    width: 70%;
-    float: left;
-  display: block;
-  text-align: center;
-}
-
-.column1 {
-    
-    width: 30%;
-    float: left;
-    display: block;
-  }
 
 button {
     padding: 5px;
@@ -46,6 +20,9 @@ h2 {
     text-align: center;
 }
 
-img {
-    height: 270px;
+
+
+.center {
+    margin: auto;
+    text-align: center;
 }

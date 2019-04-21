@@ -1,0 +1,36 @@
+.Nav {
+    height: 56px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display:block;
+    left: 0;
+    background-color: white;
+    
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+}
+
+.Nav nav {
+    height: 100%;
+}
+
+.NavigationItems {
+    margin-top: 10px;
+    left: 20px;
+    padding: 0;
+    list-style: none;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    clear: both;
+}
+
+@media screen and (max-width: 500px) {
+    .Nav {
+        height: 80px;
+  }
+  }
