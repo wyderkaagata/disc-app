@@ -6,7 +6,7 @@ const synthesator = (props) => {
 
     useEffect(() => {
         setUtterance(new SpeechSynthesisUtterance(props.sound));
-    },[props.sound]);
+    });
 
     const playHandler = () => {
         new SpeechSynthesisUtterance(utterance)
